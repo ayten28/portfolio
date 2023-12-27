@@ -10,10 +10,10 @@ class AppTextStyles{
     );
   }
 
-  static TextStyle monteseratStyle(){
+  static TextStyle monteseratStyle({required Color color}){
     return GoogleFonts.montserrat(
-      color: Colors.white,
-      fontWeight: FontWeight.bold,
+      color: color,
+      fontWeight: FontWeight.w800,
       fontSize: 24
     );
   }
@@ -24,6 +24,15 @@ class AppTextStyles{
         fontWeight: FontWeight.bold,
         fontSize: 30,
         letterSpacing:2
+    );
+  }
+
+  static TextStyle normalStyle(){
+    return GoogleFonts.signikaNegative(
+      fontWeight: FontWeight.w500,
+      fontSize: 17,
+      color: Colors.white,
+      letterSpacing: 1
     );
   }
 }
