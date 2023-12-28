@@ -81,16 +81,30 @@ class HomePage extends StatelessWidget {
                     Constants.sizedBox(height: 22),
                     Row(
                       children: [
-                        CircleAvatar(
-                          maxRadius: 22,
-                          backgroundColor: AppColors.themeColor,
-                          child: CircleAvatar(
-                            maxRadius: 20,
-                            backgroundColor: AppColors.bgColor,
-                            child: Image.asset(AppAssets.facebook),
-                          ),
-                        ),
+                        buildSocialButton(asset: AppAssets.facebook),
+                        Constants.sizedBox(width: 12),
+                        buildSocialButton(asset: AppAssets.github),
+                        Constants.sizedBox(width: 12),
+                        buildSocialButton(asset: AppAssets.insta),
+                        Constants.sizedBox(width: 12),
+                        buildSocialButton(asset: AppAssets.linkedIn),
+                        Constants.sizedBox(width: 12),
+                        buildSocialButton(asset: AppAssets.twitter)
                       ],
+                    ),
+                    Constants.sizedBox(height: 18),
+                    MaterialButton(onPressed: (){},
+                      color: AppColors.themeColor,
+                      padding: EdgeInsets.symmetric(horizontal: 22, vertical: 10),
+                      shape: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      hoverColor: AppColors.bgColor,
+                      height: 55,
+                      minWidth: 130,
+                      child: Text('Download CV',
+                      style: AppTextStyles.headerTextStyle(),
+                    ),
                     ),
                   ],
                 ),
@@ -100,5 +114,22 @@ class HomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  CircleAvatar buildSocialButton({required String asset}) {
+    return CircleAvatar(
+                        maxRadius: 20,
+                        backgroundColor: AppColors.themeColor,
+                        child: CircleAvatar(
+                          maxRadius: 18,
+                          backgroundColor: AppColors.bgColor,
+                          child: Image.asset(
+                          asset,
+                          width: 20,
+                          height: 24,
+                          color: AppColors.themeColor,
+                          fit: BoxFit.contain),
+                        ),
+                      );
   }
 }
