@@ -23,20 +23,31 @@ class HomePage extends StatelessWidget {
             Text('Portfolio'),
             Spacer(),
             const SizedBox(width: 30),
-            Text('Home',style: AppTextStyles.headerTextStyle()),
-            const   SizedBox(width: 30,),
-            Text('About',style: AppTextStyles.headerTextStyle()),
-            const SizedBox(width: 30,),
-            Text('Services',style: AppTextStyles.headerTextStyle()),
-            const SizedBox(width: 30,),
-            Text('Portfolio',style: AppTextStyles.headerTextStyle()),
-            const SizedBox(width: 30,),
-            Text('Contact',style: AppTextStyles.headerTextStyle())
+            Text('Home', style: AppTextStyles.headerTextStyle()),
+            const SizedBox(
+              width: 30,
+            ),
+            Text('About', style: AppTextStyles.headerTextStyle()),
+            const SizedBox(
+              width: 30,
+            ),
+            Text('Services', style: AppTextStyles.headerTextStyle()),
+            const SizedBox(
+              width: 30,
+            ),
+            Text('Portfolio', style: AppTextStyles.headerTextStyle()),
+            const SizedBox(
+              width: 30,
+            ),
+            Text('Contact', style: AppTextStyles.headerTextStyle())
           ],
         ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.only(top: size.height * 0.3, left: size.width * 0.2, right: size.width * 0.2),
+        padding: EdgeInsets.only(
+            top: size.height * 0.3,
+            left: size.width * 0.2,
+            right: size.width * 0.2),
         child: Column(
           children: [
             Row(
@@ -44,24 +55,38 @@ class HomePage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Hello, it\'s Me', style: AppTextStyles.monteseratStyle(color: Colors.white),),
+                    Text(
+                      'Hello, it\'s Me',
+                      style: AppTextStyles.monteseratStyle(color: Colors.white),
+                    ),
                     Constants.sizedBox(height: 15),
-                    Text('Ayten Huseynzade', style: AppTextStyles.headingtStyle(),),
+                    Text(
+                      'Ayten Huseynzade',
+                      style: AppTextStyles.headingtStyle(),
+                    ),
                     Constants.sizedBox(height: 15),
                     Row(
                       children: [
-                        Text('And I\'m a ', style: AppTextStyles.monteseratStyle(color: Colors.white),),
+                        Text(
+                          'And I\'m a ',
+                          style: AppTextStyles.monteseratStyle(
+                              color: Colors.white),
+                        ),
                         AnimatedTextKit(
                           animatedTexts: [
                             TyperAnimatedText('Flutter Developer',
-                                textStyle: AppTextStyles.monteseratStyle(color: Colors.lightBlue)
+                                textStyle: AppTextStyles.monteseratStyle(
+                                    color: Colors.lightBlue)
                                 //speed: Duration(milliseconds: 400)
-                            ),
-                            TyperAnimatedText('.NET Developer',
-                                textStyle: AppTextStyles.monteseratStyle(color: Colors.lightBlue),
+                                ),
+                            TyperAnimatedText(
+                              '.NET Developer',
+                              textStyle: AppTextStyles.monteseratStyle(
+                                  color: Colors.lightBlue),
                             ),
                             TyperAnimatedText('Angular Developer',
-                                textStyle: AppTextStyles.monteseratStyle(color: Colors.lightBlue)),
+                                textStyle: AppTextStyles.monteseratStyle(
+                                    color: Colors.lightBlue)),
                           ],
                           pause: const Duration(milliseconds: 1000),
                           displayFullTextOnTap: true,
@@ -72,11 +97,13 @@ class HomePage extends StatelessWidget {
                     Constants.sizedBox(height: 15),
                     SizedBox(
                       width: size.width * 0.5,
-                      child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                          ' Maecenas varius in odio nec condimentum. Nunc vel porta quam.'
-                          ' Cras sed pharetra enim, nec fermentum orci. '
-                          'Donec volutpat lobortis tortor quis pulvinar. Mauris nec congue nulla.',
-                      style: AppTextStyles.normalStyle(),),
+                      child: Text(
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                        ' Maecenas varius in odio nec condimentum. Nunc vel porta quam.'
+                        ' Cras sed pharetra enim, nec fermentum orci. '
+                        'Donec volutpat lobortis tortor quis pulvinar. Mauris nec congue nulla.',
+                        style: AppTextStyles.normalStyle(),
+                      ),
                     ),
                     Constants.sizedBox(height: 22),
                     Row(
@@ -93,19 +120,7 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                     Constants.sizedBox(height: 18),
-                    MaterialButton(onPressed: (){},
-                      color: AppColors.themeColor,
-                      padding: EdgeInsets.symmetric(horizontal: 22, vertical: 10),
-                      shape: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      hoverColor: AppColors.bgColor,
-                      height: 55,
-                      minWidth: 130,
-                      child: Text('Download CV',
-                      style: AppTextStyles.headerTextStyle(),
-                    ),
-                    ),
+                    buildMaterialButton(onTap: (){}),
                   ],
                 ),
               ],
@@ -116,20 +131,51 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  CircleAvatar buildSocialButton({required String asset}) {
-    return CircleAvatar(
-                        maxRadius: 20,
-                        backgroundColor: AppColors.themeColor,
-                        child: CircleAvatar(
-                          maxRadius: 18,
-                          backgroundColor: AppColors.bgColor,
-                          child: Image.asset(
-                          asset,
-                          width: 20,
-                          height: 24,
-                          color: AppColors.themeColor,
-                          fit: BoxFit.contain),
-                        ),
-                      );
+  MaterialButton buildMaterialButton({required VoidCallback onTap}) {
+    return MaterialButton(
+                    onPressed: onTap,
+                    color: AppColors.themeColor,
+                    splashColor: AppColors.lawGreen,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 22, vertical: 10),
+                    shape: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: BorderSide.none),
+                    hoverColor: AppColors.aqua,
+                    elevation: 6,
+                    height: 46,
+                    minWidth: 130,
+                    focusElevation: 12,
+                    child: Text(
+                      'Download CV',
+                      style: AppTextStyles.headerTextStyle(),
+                    ),
+                  );
+  }
+
+  Ink buildSocialButton({required String asset}) {
+    return Ink(
+      width: 45,
+      height: 45,
+      decoration: BoxDecoration(
+          border: Border.all(color: AppColors.themeColor, width: 2.0),
+          color: AppColors.bgColor,
+          shape: BoxShape.circle),
+      padding: EdgeInsets.all(6),
+      child: InkWell(
+        //radius: 50,
+        onTap: () {},
+        borderRadius: BorderRadius.circular(500.0),
+        splashColor: AppColors.lawGreen,
+        hoverColor: AppColors.aqua,
+        child: Image.asset(
+            asset,
+            width: 10,
+            height: 12,
+            color: AppColors.themeColor,
+            //fit: BoxFit.fill
+        ),
+      ),
+    );
   }
 }
