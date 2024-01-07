@@ -6,6 +6,7 @@ import 'package:test_web/globals/app_text_styles.dart';
 import 'package:test_web/globals/constants.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:test_web/widgets/profile_animation.dart';
+import 'about_me.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -48,8 +49,9 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         padding: EdgeInsets.only(
             top: size.height * 0.05,
-            left: size.width * 0.1,
-            right: size.width * 0.1),
+            // left: size.width * 0.1,
+            // right: size.width * 0.1
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -149,9 +151,12 @@ class HomePage extends StatelessWidget {
                 ),
                 //SizedBox(width: 20),
                 const ProfileAnimation(),
-
               ],
             ),
+            const SizedBox(
+              height: 220,
+            ),
+            AboutMe(),
           ],
         ),
       ),

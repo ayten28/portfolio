@@ -18,11 +18,11 @@ class AppTextStyles{
     );
   }
 
-  static TextStyle headingtStyle(){
+  static TextStyle headingtStyle({double fontSize = 36, Color color = Colors.white}){
     return GoogleFonts.rubikMoonrocks(
-        color: Colors.white,
+        color: color,
         fontWeight: FontWeight.bold,
-        fontSize: 30,
+        fontSize: fontSize,
         letterSpacing:2
     );
   }
