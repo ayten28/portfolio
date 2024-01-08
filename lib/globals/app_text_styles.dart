@@ -28,11 +28,11 @@ class AppTextStyles{
   }
 
   static TextStyle normalStyle(){
-    return GoogleFonts.signikaNegative(
+    return const TextStyle(
       fontWeight: FontWeight.w500,
       fontSize: 17,
       color: Colors.white,
-      letterSpacing: 1
+      letterSpacing: 1.7
     );
   }
 }

@@ -1,10 +1,12 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:test_web/globals/app_assets.dart';
+import 'package:test_web/globals/app_buttons.dart';
 import 'package:test_web/globals/app_colors.dart';
 import 'package:test_web/globals/app_text_styles.dart';
 import 'package:test_web/globals/constants.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:test_web/views/my_services.dart';
 import 'package:test_web/widgets/profile_animation.dart';
 import 'about_me.dart';
 
@@ -145,8 +147,7 @@ class HomePage extends StatelessWidget {
                     Constants.sizedBox(height: 18),
                     FadeInUp(
                       duration: Duration(milliseconds: 1800),
-                      child: buildMaterialButton(onTap: (){}),)
-
+                      child: AppButtons.buildMaterialButton(buttonName: 'Download CV', onTap: (){}))
                   ],
                 ),
                 //SizedBox(width: 20),
@@ -156,34 +157,15 @@ class HomePage extends StatelessWidget {
             const SizedBox(
               height: 220,
             ),
-            AboutMe(),
+            const AboutMe(),
+            const MyServices(),
           ],
         ),
       ),
     );
   }
 
-  MaterialButton buildMaterialButton({required VoidCallback onTap}) {
-    return MaterialButton(
-                    onPressed: onTap,
-                    color: AppColors.themeColor,
-                    splashColor: AppColors.lawGreen,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 22, vertical: 10),
-                    shape: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide.none),
-                    hoverColor: AppColors.aqua,
-                    elevation: 6,
-                    height: 46,
-                    minWidth: 130,
-                    focusElevation: 12,
-                    child: Text(
-                      'Download CV',
-                      style: AppTextStyles.headerTextStyle(),
-                    ),
-                  );
-  }
+
 
   Ink buildSocialButton({required String asset}) {
     return Ink(
