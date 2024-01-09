@@ -158,7 +158,7 @@ class HomePage extends StatelessWidget {
               height: 220,
             ),
             const AboutMe(),
-            const MyServices(),
+             MyServices(),
           ],
         ),
       ),
