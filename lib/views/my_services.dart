@@ -8,13 +8,15 @@ import 'package:test_web/globals/constants.dart';
 import '../globals/app_text_styles.dart';
 
 class MyServices extends StatefulWidget {
-
   @override
   State<MyServices> createState() => _MyServicesState();
 }
 
 class _MyServicesState extends State<MyServices> {
-  bool isHover = false;
+  bool isApp = false, isGraphyc = false, isDataAnalyst = false;
+
+  final onHoverActive = Matrix4.identity()..translate(0, -10, 0);
+  final onHoverRemove = Matrix4.identity()..translate(0, 0, 0);
 
   @override
   Widget build(BuildContext context) {
@@ -47,17 +49,41 @@ class _MyServicesState extends State<MyServices> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               InkWell(
-                onTap: (){},
-                onHover: (value){
-                  setState((){
-                    isHover = value;
+                  onTap: () {},
+                  onHover: (value) {
+                    setState(() {
+                      isApp = value;
+                    });
+                  },
+                  child: buildAnimatedContainer(
+                      title: 'App Development',
+                      asset: AppAssets.code,
+                      hover: isApp)),
+              Constants.sizedBox(width: 18),
+              InkWell(
+                  onTap: () {},
+                  onHover: (value) {
+                    setState(() {
+                      isGraphyc = value;
+                    });
+                  },
+                  child: buildAnimatedContainer(
+                      title: 'Graphic Designing',
+                      asset: AppAssets.analytics,
+                      hover: isGraphyc)),
+              Constants.sizedBox(width: 18),
+              InkWell(
+                onTap: () {},
+                onHover: (value) {
+                  setState(() {
+                    isDataAnalyst = value;
                   });
                 },
-              child: buildAnimatedContainer(title: 'App Development', asset: AppAssets.code, hover: isHover)),
-              Constants.sizedBox(width: 18),
-              buildAnimatedContainer(title: 'Graphic Designing', asset: AppAssets.analytics, hover: isHover),
-              Constants.sizedBox(width: 18),
-              buildAnimatedContainer(title: 'Digital Marketing', asset: AppAssets.brush, hover: isHover),
+                child: buildAnimatedContainer(
+                    title: 'Digital Marketing',
+                    asset: AppAssets.brush,
+                    hover: isDataAnalyst),
+              ),
               Constants.sizedBox(width: 18),
             ],
           ),
@@ -66,20 +92,19 @@ class _MyServicesState extends State<MyServices> {
     );
   }
 
-  AnimatedContainer buildAnimatedContainer({
-    required String title,
-    required String asset,
-    required bool hover
-}) {
+  AnimatedContainer buildAnimatedContainer(
+      {required String title, required String asset, required bool hover}) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 600),
       width: hover ? 400 : 390,
-      height:  hover ? 440 : 430,
+      height: hover ? 440 : 430,
+      transform: hover ? onHoverActive : onHoverRemove,
       alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 24),
       decoration: BoxDecoration(
         color: AppColors.bgColor2,
         borderRadius: BorderRadius.circular(30),
+        border: hover ? Border.all(color: AppColors.themeColor, width: 3) : null,
         boxShadow: const [
           BoxShadow(
               color: Colors.black54,
