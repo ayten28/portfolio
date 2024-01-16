@@ -11,6 +11,6 @@ class AppAssets{
   static String code = 'assets/images/coding.png';
   static String brush = 'assets/images/brush-stroke.png';
   static String analytics = 'assets/images/analytics.png';
-  static String work1 = 'assets/images/work1.png';
-  static String work2 = 'assets/images/work2.png';
+  static String work1 = 'assets/images/work1.jpg';
+  static String work2 = 'assets/images/work2.jpg';
 }

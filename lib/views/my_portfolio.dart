@@ -14,8 +14,7 @@ class MyPortfolio extends StatefulWidget {
 }
 
 class _MyPortfolioState extends State<MyPortfolio> {
-
-  List images = <String> [
+  List images = <String>[
     AppAssets.work1,
     AppAssets.work2,
     AppAssets.work1,
@@ -31,9 +30,10 @@ class _MyPortfolioState extends State<MyPortfolio> {
       width: size.width,
       height: size.height,
       color: AppColors.bgColor2,
-      // alignment: Alignment.center,
-      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+      alignment: Alignment.center,
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: size.width * 0.1),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           FadeInDown(
             duration: Duration(milliseconds: 1200),
@@ -54,16 +54,30 @@ class _MyPortfolioState extends State<MyPortfolio> {
           GridView.builder(
               itemCount: images.length,
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 6,
-                mainAxisExtent: 280,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                mainAxisExtent: 300,
                 mainAxisSpacing: 24,
                 crossAxisSpacing: 24,
               ),
               itemBuilder: (context, index) {
-                return Container(
-                  color: AppColors.aqua,
+                var image = images[index];
+                return Stack(
+                  children:[
+                    ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image(
+                          image: AssetImage(image),
+                          fit: BoxFit.fill,
+                        )),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: AppColors.themeColor.withOpacity(0.6)
+                      ),
+                    ),
+                  ]
                 );
               })
         ],
