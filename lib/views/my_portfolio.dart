@@ -14,6 +14,9 @@ class MyPortfolio extends StatefulWidget {
 }
 
 class _MyPortfolioState extends State<MyPortfolio> {
+
+  final onHoverEffect = Matrix4.identity()..scale(1.0);
+
   List images = <String>[
     AppAssets.work1,
     AppAssets.work2,
@@ -23,6 +26,8 @@ class _MyPortfolioState extends State<MyPortfolio> {
     AppAssets.work2,
   ];
 
+  var hoveredIndex;
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -31,7 +36,8 @@ class _MyPortfolioState extends State<MyPortfolio> {
       height: size.height,
       color: AppColors.bgColor2,
       alignment: Alignment.center,
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: size.width * 0.1),
+      padding:
+          EdgeInsets.symmetric(horizontal: 30, vertical: size.width * 0.05),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -57,27 +63,74 @@ class _MyPortfolioState extends State<MyPortfolio> {
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
-                mainAxisExtent: 300,
+                mainAxisExtent: 200,
                 mainAxisSpacing: 24,
                 crossAxisSpacing: 24,
               ),
               itemBuilder: (context, index) {
                 var image = images[index];
-                return Stack(
-                  children:[
-                    ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Image(
-                          image: AssetImage(image),
-                          fit: BoxFit.fill,
-                        )),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: AppColors.themeColor.withOpacity(0.6)
+                return FadeInUpBig(
+                  duration: const Duration(milliseconds: 1600),
+                  child: InkWell(
+                    onTap: (){},
+                    onHover: (value){
+                      setState(() {
+                        setState(() {
+                          if(value)
+                          {
+                            hoveredIndex = index;
+                          }
+                        });
+                      });
+                    },
+                    child: Stack(alignment: Alignment.center, children: [
+                      ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image(
+                            image: AssetImage(image),
+                            fit: BoxFit.fill,
+                          )),
+                      Visibility(
+                        visible: index == hoveredIndex,
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 300),
+                          transform: index == hoveredIndex ? onHoverEffect : null,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 14, vertical: 16),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              gradient: LinearGradient(
+                                  colors: [
+                                    AppColors.themeColor.withOpacity(1.0),
+                                    AppColors.themeColor.withOpacity(0.9),
+                                    AppColors.themeColor.withOpacity(0.8),
+                                    AppColors.themeColor.withOpacity(0.7),
+                                  ],
+                                  begin: Alignment.bottomCenter,
+                                  end: Alignment.topCenter)
+                              //color: AppColors.themeColor.withOpacity(0.6)
+                              ),
+                          child: Column(
+                            children: [
+                              Text(
+                                'App Development',
+                                style: AppTextStyles.monteseratStyle(
+                                    color: Colors.black87, fontsize: 18),
+                              ),
+                              Constants.sizedBox(height: 15),
+                              Text(
+                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                                ' Maecenas varius in odio nec condimentum. Nunc vel porta quam.',
+                                style:
+                                    AppTextStyles.normalStyle(color: Colors.black87),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
-                    ),
-                  ]
+                    ]),
+                  ),
                 );
               })
         ],

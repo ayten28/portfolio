@@ -10,11 +10,11 @@ class AppTextStyles{
     );
   }
 
-  static TextStyle monteseratStyle({required Color color}){
+  static TextStyle monteseratStyle({required Color color, double fontsize = 24}){
     return GoogleFonts.montserrat(
       color: color,
       fontWeight: FontWeight.w800,
-      fontSize: 24
+      fontSize: fontsize
     );
   }
 
@@ -27,11 +27,11 @@ class AppTextStyles{
     );
   }
 
-  static TextStyle normalStyle(){
-    return const TextStyle(
+  static TextStyle normalStyle({Color color = Colors.white}){
+    return TextStyle(
       fontWeight: FontWeight.w500,
       fontSize: 17,
-      color: Colors.white,
+      color: color,
       letterSpacing: 1.7
     );
   }
