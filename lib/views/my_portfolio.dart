@@ -36,8 +36,7 @@ class _MyPortfolioState extends State<MyPortfolio> {
       height: size.height,
       color: AppColors.bgColor2,
       alignment: Alignment.center,
-      padding:
-          EdgeInsets.symmetric(horizontal: 30, vertical: size.width * 0.05),
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: size.width * 0.05),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -125,6 +124,16 @@ class _MyPortfolioState extends State<MyPortfolio> {
                                     AppTextStyles.normalStyle(color: Colors.black87),
                                 textAlign: TextAlign.center,
                               ),
+                              Constants.sizedBox(height: 10),
+                              CircleAvatar(
+                                maxRadius: 25,
+                                backgroundColor: Colors.white,
+                                child: Image.asset(AppAssets.share,
+                                width: 25,
+                                height: 25,
+                                fit: BoxFit.fill
+                                  ),
+                               ),
                             ],
                           ),
                         ),

@@ -35,4 +35,9 @@ class AppTextStyles{
       letterSpacing: 1.7
     );
   }
+
+  static TextStyle comfortaaStyle() {
+    return GoogleFonts.comfortaa(
+        fontSize: 18, fontWeight: FontWeight.w800, color: Colors.grey);
+  }
 }

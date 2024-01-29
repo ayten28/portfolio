@@ -6,6 +6,7 @@ import 'package:test_web/globals/app_colors.dart';
 import 'package:test_web/globals/app_text_styles.dart';
 import 'package:test_web/globals/constants.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:test_web/views/contact_us.dart';
 import 'package:test_web/views/my_portfolio.dart';
 import 'package:test_web/views/my_services.dart';
 import 'package:test_web/widgets/profile_animation.dart';
@@ -159,8 +160,10 @@ class HomePage extends StatelessWidget {
               height: 220,
             ),
             const AboutMe(),
-             MyServices(),
+            MyServices(),
             const MyPortfolio(),
+            const ContactUs(),
+
           ],
         ),
       ),
