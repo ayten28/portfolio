@@ -7,6 +7,7 @@ import 'package:test_web/globals/app_text_styles.dart';
 import 'package:test_web/globals/constants.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:test_web/views/contact_us.dart';
+import 'package:test_web/views/footer_class.dart';
 import 'package:test_web/views/my_portfolio.dart';
 import 'package:test_web/views/my_services.dart';
 import 'package:test_web/widgets/profile_animation.dart';
@@ -60,101 +61,104 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    FadeInDown(
-                      duration: Duration(milliseconds: 1200),
-                      child: Text(
-                        'Hello, it\'s Me',
-                        style: AppTextStyles.monteseratStyle(color: Colors.white),
-                      ),
-                    ),
-                    Constants.sizedBox(height: 15),
-                    FadeInRight(
-                      duration: Duration(milliseconds: 1400),
-                      child: Text(
-                        'Ayten Huseynzade',
-                        style: AppTextStyles.headingtStyle(),
-                      ),
-                    ),
-                    Constants.sizedBox(height: 15),
-                    FadeInLeft(
-                      duration: Duration(milliseconds: 1400),
-                      child: Row(
-                        children: [
-                          Text(
-                            'And I\'m a ',
-                            style: AppTextStyles.monteseratStyle(
-                                color: Colors.white),
-                          ),
-                          AnimatedTextKit(
-                            animatedTexts: [
-                              TyperAnimatedText('Flutter Developer',
-                                  textStyle: AppTextStyles.monteseratStyle(
-                                      color: Colors.lightBlue)
-                                  //speed: Duration(milliseconds: 400)
-                                  ),
-                              TyperAnimatedText(
-                                '.NET Developer',
-                                textStyle: AppTextStyles.monteseratStyle(
-                                    color: Colors.lightBlue),
-                              ),
-                              TyperAnimatedText('Angular Developer',
-                                  textStyle: AppTextStyles.monteseratStyle(
-                                      color: Colors.lightBlue)),
-                            ],
-                            pause: const Duration(milliseconds: 1000),
-                            displayFullTextOnTap: true,
-                            stopPauseOnTap: true,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Constants.sizedBox(height: 15),
-                    FadeInDown(
-                      duration: Duration(milliseconds: 1600),
-                      child: SizedBox(
-                        width: size.width * 0.5,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: size.width * 0.05),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      FadeInDown(
+                        duration: Duration(milliseconds: 1200),
                         child: Text(
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                          ' Maecenas varius in odio nec condimentum. Nunc vel porta quam.'
-                          ' Cras sed pharetra enim, nec fermentum orci. '
-                          'Donec volutpat lobortis tortor quis pulvinar. Mauris nec congue nulla.',
-                          style: AppTextStyles.normalStyle(),
+                          'Hello, it\'s Me',
+                          style: AppTextStyles.monteseratStyle(color: Colors.white),
                         ),
                       ),
-                    ),
-                    Constants.sizedBox(height: 22),
-                    FadeInUp(
-                      duration: Duration(milliseconds: 1600),
-                      child: Row(
-                        children: [
-                          buildSocialButton(asset: AppAssets.facebook),
-                          Constants.sizedBox(width: 12),
-                          buildSocialButton(asset: AppAssets.github),
-                          Constants.sizedBox(width: 12),
-                          buildSocialButton(asset: AppAssets.insta),
-                          Constants.sizedBox(width: 12),
-                          buildSocialButton(asset: AppAssets.linkedIn),
-                          Constants.sizedBox(width: 12),
-                          buildSocialButton(asset: AppAssets.twitter)
-                        ],
+                      Constants.sizedBox(height: 15),
+                      FadeInRight(
+                        duration: Duration(milliseconds: 1400),
+                        child: Text(
+                          'Ayten Huseynzade',
+                          style: AppTextStyles.headingtStyle(),
+                        ),
                       ),
-                    ),
-                    Constants.sizedBox(height: 18),
-                    FadeInUp(
-                      duration: Duration(milliseconds: 1800),
-                      child: AppButtons.buildMaterialButton(buttonName: 'Download CV', onTap: (){}))
-                  ],
-                ),
-                //SizedBox(width: 20),
-                const ProfileAnimation(),
-              ],
+                      Constants.sizedBox(height: 15),
+                      FadeInLeft(
+                        duration: Duration(milliseconds: 1400),
+                        child: Row(
+                          children: [
+                            Text(
+                              'And I\'m a ',
+                              style: AppTextStyles.monteseratStyle(
+                                  color: Colors.white),
+                            ),
+                            AnimatedTextKit(
+                              animatedTexts: [
+                                TyperAnimatedText('Flutter Developer',
+                                    textStyle: AppTextStyles.monteseratStyle(
+                                        color: Colors.lightBlue)
+                                    //speed: Duration(milliseconds: 400)
+                                    ),
+                                TyperAnimatedText(
+                                  '.NET Developer',
+                                  textStyle: AppTextStyles.monteseratStyle(
+                                      color: Colors.lightBlue),
+                                ),
+                                TyperAnimatedText('Angular Developer',
+                                    textStyle: AppTextStyles.monteseratStyle(
+                                        color: Colors.lightBlue)),
+                              ],
+                              pause: const Duration(milliseconds: 1000),
+                              displayFullTextOnTap: true,
+                              stopPauseOnTap: true,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Constants.sizedBox(height: 15),
+                      FadeInDown(
+                        duration: Duration(milliseconds: 1600),
+                        child: SizedBox(
+                          width: size.width * 0.5,
+                          child: Text(
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                            ' Maecenas varius in odio nec condimentum. Nunc vel porta quam.'
+                            ' Cras sed pharetra enim, nec fermentum orci. '
+                            'Donec volutpat lobortis tortor quis pulvinar. Mauris nec congue nulla.',
+                            style: AppTextStyles.normalStyle(),
+                          ),
+                        ),
+                      ),
+                      Constants.sizedBox(height: 22),
+                      FadeInUp(
+                        duration: Duration(milliseconds: 1600),
+                        child: Row(
+                          children: [
+                            buildSocialButton(asset: AppAssets.facebook),
+                            Constants.sizedBox(width: 12),
+                            buildSocialButton(asset: AppAssets.github),
+                            Constants.sizedBox(width: 12),
+                            buildSocialButton(asset: AppAssets.insta),
+                            Constants.sizedBox(width: 12),
+                            buildSocialButton(asset: AppAssets.linkedIn),
+                            Constants.sizedBox(width: 12),
+                            buildSocialButton(asset: AppAssets.twitter)
+                          ],
+                        ),
+                      ),
+                      Constants.sizedBox(height: 18),
+                      FadeInUp(
+                        duration: Duration(milliseconds: 1800),
+                        child: AppButtons.buildMaterialButton(buttonName: 'Download CV', onTap: (){}))
+                    ],
+                  ),
+                  //SizedBox(width: 20),
+                  const ProfileAnimation(),
+                ],
+              ),
             ),
             const SizedBox(
               height: 220,
@@ -163,6 +167,7 @@ class HomePage extends StatelessWidget {
             MyServices(),
             const MyPortfolio(),
             const ContactUs(),
+            const FooterClass()
 
           ],
         ),
